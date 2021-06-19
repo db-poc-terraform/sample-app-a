@@ -23,9 +23,6 @@ spec:
       app: sample-app-a
   strategy:
     type: Recreate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
   minReadySeconds: 5
   template:
     metadata:
