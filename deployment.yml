@@ -15,12 +15,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: xyz
+  name: sample-app-a
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: xyz
+      app: sample-app-a
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -29,10 +29,10 @@ spec:
   template:
     metadata:
       labels:
-        app: xyz
+        app: sample-app-a
     spec:
       containers:
-      - name: xyz
+      - name: sample-app-a
         image: gcr.io/PROJECT_ID/IMAGE:TAG
         ports:
         - containerPort: 5000
