@@ -23,6 +23,7 @@ spec:
       app: sample-app-a
   strategy:
     type: Recreate
+    rollingUpdate: null
   minReadySeconds: 5
   template:
     metadata:
