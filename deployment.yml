@@ -22,6 +22,7 @@ spec:
     matchLabels:
       app: sample-app-a
   strategy:
+    type: Recreate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
