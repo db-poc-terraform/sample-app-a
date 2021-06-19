@@ -66,7 +66,7 @@ jobs:
     - name: Publish
       run: |-
         docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
-        #docker push "gcr.io/$PROJECT_ID/$IMAGE:latest"
+        docker push "gcr.io/$PROJECT_ID/$IMAGE:latest"
         
     # Set up kustomize
     - name: Set up Kustomize
@@ -77,7 +77,7 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
+        ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:latest
         ./kustomize build . | kubectl apply -f -
         kubectl rollout restart deployment $DEPLOYMENT_NAME
         kubectl rollout status deployment/$DEPLOYMENT_NAME
