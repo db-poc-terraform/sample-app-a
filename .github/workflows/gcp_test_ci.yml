@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-name: Build and Deploy to GKE
+name: Build and Deploy to GKE- Test
 
 on:
   push:
@@ -28,7 +28,7 @@ env:
 
 jobs:
   setup-build-publish-deploy:
-    name: Setup, Build, Publish, and Deploy
+    name: Build and Deploy to Test ENV
     runs-on: ubuntu-latest
 
     steps:
